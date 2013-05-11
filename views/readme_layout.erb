@@ -3,6 +3,6 @@ Generated <%= timeago(Time.now) %>
 
 <%= formatted_file_list("All Files", result.source_files) %>
 
-<% result.groups.each do |group| %>
-  <%= badge(group) %>
+<% result.groups.each do |group, files| %>
+  <%= badge(group, files) %>
 <% end %>
