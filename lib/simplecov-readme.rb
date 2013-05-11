@@ -16,7 +16,7 @@ class SimpleCov::Formatter::ReadmeFormatter
     # end
 
     File.open(File.join(Rails.root, "README.md"), "a+") do |file|
-      file.puts template('layout').result(binding)
+      file.puts template('readme_layout').result(binding)
     end
     puts output_message(result)
   end
