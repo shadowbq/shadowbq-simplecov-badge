@@ -1,7 +1,8 @@
 ## Code coverage for <%= SimpleCov.project_name %>
-  
+Generated <%= timeago(Time.now) %>
+
 <%= formatted_file_list("All Files", result.source_files) %>
 
-<% result.groups.each do |name, files| %>
-  <%= formatted_file_list(name, files) %>
+<% result.groups.each do |group| %>
+  <%= badge(group) %>
 <% end %>

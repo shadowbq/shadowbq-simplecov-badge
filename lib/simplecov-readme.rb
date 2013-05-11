@@ -52,6 +52,11 @@ class SimpleCov::Formatter::ReadmeFormatter
     template('source_file').result(binding)
   end
 
+  # Returns the html badge for the given group
+  def badge(group)
+    template('badge').result(binding)
+  end
+  
   # Returns a table containing the given source files
   def formatted_file_list(title, source_files)
     title_id = title.gsub(/^[^a-zA-Z]+/, '').gsub(/[^a-zA-Z0-9\-\_]/, '')
