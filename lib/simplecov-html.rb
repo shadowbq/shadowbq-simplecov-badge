@@ -9,13 +9,13 @@ if Gem::Version.new(SimpleCov::VERSION) < Gem::Version.new("0.7.1")
   raise RuntimeError, "The version of SimpleCov you are using is too old. Please update with `gem install simplecov` or `bundle update simplecov`"
 end
 
-class SimpleCov::Formatter::HTMLFormatter
+class SimpleCov::Formatter::ReadmeFormatter
   def format(result)
-    Dir[File.join(File.dirname(__FILE__), '../public/*')].each do |path|
-      FileUtils.cp_r(path, asset_output_path)
-    end
+    # Dir[File.join(File.dirname(__FILE__), '../public/*')].each do |path|
+    #   FileUtils.cp_r(path, asset_output_path)
+    # end
 
-    File.open(File.join(output_path, "index.html"), "w+") do |file|
+    File.open(File.join(Rails.root, "README.md"), "a+") do |file|
       file.puts template('layout').result(binding)
     end
     puts output_message(result)
