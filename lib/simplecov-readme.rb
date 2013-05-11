@@ -53,7 +53,7 @@ class SimpleCov::Formatter::ReadmeFormatter
   end
 
   # Returns the html badge for the given group
-  def badge(group, source_files)
+  def badge(name, source_files)
     template('badge').result(binding)
   end
   

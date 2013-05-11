@@ -1,6 +1,13 @@
-<%= name %>
-<%= coverage_css_class(source_files.covered_percent) %>
-<%= source_files.covered_percent.round(2) %>%
-   covered at
-<%= strength_css_class(source_files.covered_strength) %>
-<%= source_files.covered_strength.round(2) %> hits/line
+<tr>
+  <td>
+    <%= name %>
+  </td>
+  <td>
+    <%= coverage_css_class(source_files.covered_percent) %>
+    <%= source_files.covered_percent.round(2) %>%
+  </td>
+  <td>
+  <%= strength_css_class(source_files.covered_strength) %>
+  <%= source_files.covered_strength.round(2) %>
+  </td>
+</tr>
