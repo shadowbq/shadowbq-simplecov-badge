@@ -1,8 +1,8 @@
 require 'helper'
 
-class TestSimpleCovReadme < Test::Unit::TestCase
+class TestSimpleCovBadge < Test::Unit::TestCase
   def test_defined
-    assert defined?(SimpleCov::Formatter::ReadmeFormatter)
-    assert defined?(SimpleCov::Formatter::ReadmeFormatter::VERSION)
+    assert defined?(SimpleCov::Formatter::BadgeFormatter)
+    assert defined?(SimpleCov::Formatter::BadgeFormatter::VERSION)
   end
 end
