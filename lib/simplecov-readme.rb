@@ -15,9 +15,12 @@ class SimpleCov::Formatter::ReadmeFormatter
     #   FileUtils.cp_r(path, asset_output_path)
     # end
 
-    File.open(File.join(Rails.root, "README.md"), "a+") do |file|
-      file.puts template('readme_layout').result(binding)
-    end
+    # File.open(File.join(Rails.root, "README.md"), "a+") do |file|
+    #   file.puts template('readme_layout').result(binding)
+    # end
+    
+    generate_badges(result)
+    
     puts output_message(result)
   end
 
@@ -26,6 +29,23 @@ class SimpleCov::Formatter::ReadmeFormatter
   end
 
   private
+  
+  # generates badges using ImageMagick
+  def generate_badges(result)
+    overall_cov = result.source_files.covered_percent.round(2)
+    overall_strength = result.covered_strength.round(2)
+    system <<-COMMAND
+    convert ./lib/tasks/resources/coverage-#{coverage_css_class(overall_cov)}.png -font Times-Bold -fill white -pointsize 16 -draw "text 95,14 '98%'" ./coverage/coverage-badge.png
+    COMMAND
+    result.groups.each do |name, files|
+      cov = result.source_files.covered_percent.round(2)
+      strength = result.covered_strength.round(2)
+      system <<-COMMAND
+      convert ./lib/tasks/resources/badge-#{coverage_css_class(cov)}.png -font Times-Bold -fill white -pointsize 16 -draw "text 95,14 '98%'" -draw "text 5,14 '#{name}'" ./coverage/coverage-#{name}-badge.png
+      COMMAND
+    end
+  end
+  
 
   # Returns the an erb instance for the template of given name
   def template(name)
