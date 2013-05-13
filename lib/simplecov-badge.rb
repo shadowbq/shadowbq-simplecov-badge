@@ -1,5 +1,6 @@
 require 'time'
 
+
 # Ensure we are using a compatible version of SimpleCov
 if Gem::Version.new(SimpleCov::VERSION) < Gem::Version.new("0.7.1")
   raise RuntimeError, "The version of SimpleCov you are using is too old. Please update with `gem install simplecov` or `bundle update simplecov`"
@@ -40,8 +41,8 @@ class SimpleCov::Formatter::BadgeFormatter
       return false
     end
     result.groups.each do |name, files|
-      cov = result.source_files.covered_percent.round(0)
-      strength = result.covered_strength.round(0)
+      cov = files.covered_percent.round(0)
+      strength = files.covered_strength.round(0)
       command = """
         convert #{output_path}/coverage-badge.png \\( -size 300x30 xc:#{coverage_css_class(cov)} -draw 'fill silver rectangle 47,0 300,30' \
         -strokewidth 2 -draw 'stroke white line 47,0 47,30' \
