@@ -34,20 +34,29 @@ class SimpleCov::Formatter::ReadmeFormatter
   def generate_badges(result)
     overall_cov = result.source_files.covered_percent.round(2)
     overall_strength = result.covered_strength.round(2)
-    command = """
-      convert -size 237x30 xc:#{coverage_css_class(overall_cov)} -draw 'fill silver rectangle 47,0 237,30' \
-          -strokewidth 2 -draw 'stroke white line 47,0 47,30' \
-          -pointsize 22 -font 'Helvetica-Narrow-Bold' \
-          -fill white -draw \"kerning 2 text 3,22 '98%'\" \
-          -pointsize 19 -fill white -font 'Helvetica' \
-          -draw \"kerning 1 text 51,22 'CODE COVERAGE'\" \
-          -format 'roundrectangle 1,1 %[fx:w+10],%[fx:h+4] 10,10' \
-          -write info:tmp.mvg \
-          -alpha set -bordercolor none -border 3 \
-          \( +clone -alpha transparent -background none \
-             -fill white -stroke none -strokewidth 0 -draw @tmp.mvg \) \
-          -compose DstIn -composite ./coverage/coverage-badge.png
-          """
+    command = "convert -size 237x30 xc:#{coverage_css_class(overall_cov)} -draw \"fill silver rectangle 47,0 237,30\" \
+      -strokewidth 2 -draw \"stroke white line 47,0 47,30\" -pointsize 22 \
+      -font 'Helvetica-Narrow-Bold' -fill white -draw \"kerning 2 text 3,22 '98%'\" \
+      -pointsize 19 -fill white -font 'Helvetica' -draw \"kerning 1 text 51,22 'CODE COVERAGE'\" \
+      -format 'roundrectangle 1,1 %[fx:w+10],%[fx:h+4] 10,10' \
+            -write info:tmp.mvg \
+            -alpha set -bordercolor none -border 3 \
+            \( +clone -alpha transparent -background none \
+               -fill white -stroke none -strokewidth 0 -draw @tmp.mvg \) \
+            -compose DstIn -composite ./coverage/coverage-badge.png"
+      # convert -size 237x30 xc:#{coverage_css_class(overall_cov)} -draw 'fill silver rectangle 47,0 237,30' \
+      #           -strokewidth 2 -draw 'stroke white line 47,0 47,30' \
+      #           -pointsize 22 -font 'Helvetica-Narrow-Bold' \
+      #           -fill white -draw \"kerning 2 text 3,22 '98%'\" \
+      #           -pointsize 19 -fill white -font 'Helvetica' \
+      #           -draw \"kerning 1 text 51,22 'CODE COVERAGE'\" \
+      #           -format 'roundrectangle 1,1 %[fx:w+10],%[fx:h+4] 10,10' \
+      #           -write info:tmp.mvg \
+      #           -alpha set -bordercolor none -border 3 \
+      #           \( +clone -alpha transparent -background none \
+      #              -fill white -stroke none -strokewidth 0 -draw @tmp.mvg \) \
+      #           -compose DstIn -composite ./coverage/coverage-badge.png
+      #           "
     if system(command)
       system('rm tmp.mvg')
     else
