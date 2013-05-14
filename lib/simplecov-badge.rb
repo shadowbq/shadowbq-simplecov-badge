@@ -14,81 +14,140 @@ class SimpleCov::Formatter::BadgeFormatter
   end
 
   def output_message(result)
-    "Coverage report generated for #{result.command_name} to #{output_path}. #{result.covered_lines} / #{result.total_lines} LOC (#{result.covered_percent.round(2)}%) covered."
+    "Coverage badge generated for #{result.command_name} to #{output_path}."
   end
 
   private
   
   # generates badges using ImageMagick
   def generate_badges(result)
+    generate_header_badge(result)
+    generate_group_badges(result)
+  end
+  
+  def generate_header_badge(result)
     overall_cov = result.source_files.covered_percent.round(0)
     overall_strength = result.covered_strength.round(0)
-    command = "convert -size 300x30 xc:#{coverage_css_class(overall_cov)} \
-              -draw \"fill silver rectangle 47,0 300,30\" -strokewidth 2 \
-              -draw \"stroke white line 47,0 47,30\" -pointsize 22 -font 'Helvetica-Narrow-Bold' \
-              -fill white -draw \"kerning 2 text 3,22 '#{overall_cov}%'\" -pointsize 19 -fill white \
-              -font 'Helvetica' -draw \"kerning 1 text 51,22 'CODE COVERAGE'\" \
-              -gravity West -background white -splice 1x0  -background black -splice 1x0 \
-              -trim  +repage -gravity West -chop 1x0 -gravity East \
-              -background silver -splice 2x0 \
-              -format 'roundrectangle 1,1 %[fx:w+10],%[fx:h+4] 10,10' -write info:tmp.mvg \
-              -alpha set -bordercolor none -border 3 \\( +clone -alpha transparent \
-              -background none -fill white -stroke none -strokewidth 0 -draw @tmp.mvg \\) \
-              -compose DstIn -composite #{output_path}/coverage-badge.png"
-    if system(command)
-      system('rm tmp.mvg')
-    else
-      return false
+    command = []
+    command[0] = """
+      convert -size 52x25 xc:'#{coverage_color(overall_cov)}' -pointsize 20 -font 'Helvetica-Narrow-Bold' \
+      -gravity east -fill white -draw \"kerning 2 text +2,+2 '#{overall_cov}%'\" \
+      -alpha set -bordercolor none -border 3 \
+      -gravity North -chop 0x3 \
+      -gravity South -chop 0x3 \
+      -gravity West -chop 3x0 \
+      #{output_path}/tmp.png
+      """
+    command[1] = """
+      convert #{output_path}/tmp.png \\( -size 237x25 xc:'#{strength_color(overall_strength)}' \
+      -pointsize 17 -fill white -font 'Helvetica' \
+      -draw \"kerning 1 text 4,19 'OVERALL STRENGTH'\" \
+      -gravity West \
+      -background white -splice 1x0  -background black -splice 1x0 \
+      -trim  +repage -gravity West -chop 1x0 -gravity East \
+      -background '#{strength_color(overall_strength)}' -splice 2x0 \\) \
+      -background none +append #{output_path}/tmp.png
+      """
+    command[2] = """
+      convert #{output_path}/tmp.png -format 'roundrectangle 1,1 %[fx:w+4],%[fx:h+25] 10,10' \
+      -write info:#{output_path}/tmp.mvg \
+      -alpha set -bordercolor none -border 3 \
+      \\( +clone -alpha transparent -background none \
+      -fill white -stroke none -strokewidth 0 -draw @#{output_path}/tmp.mvg \\) \
+      -compose DstIn -composite \
+      -gravity South -chop 0x3 #{output_path}/tmp.png
+      """
+    command[3] = """
+      convert #{output_path}/tmp.png \\( +clone -alpha extract \
+      \\( -size 5x2 xc:black -draw 'fill white circle 8,8 8,0' -write mpr:arc +delete \\) \
+      \\( mpr:arc -rotate 180 \\) -gravity southeast -composite \\) \
+      -alpha off -compose CopyOpacity -composite #{output_path}/coverage-badge.png
+      """
+    begin
+      command.each do |cmd|
+        raise Exception unless system(cmd)
+      end
+    ensure
+      system("rm #{output_path}/tmp.mvg")
+      system("rm #{output_path}/tmp.png")
     end
+  end
+  
+  def generate_group_badges(result)
     result.groups.each do |name, files|
       cov = files.covered_percent.round(0)
       strength = files.covered_strength.round(0)
-      command = """
-        convert #{output_path}/coverage-badge.png \\( -size 300x30 xc:#{coverage_css_class(cov)} -draw 'fill silver rectangle 47,0 300,30' \
-        -strokewidth 2 -draw 'stroke white line 47,0 47,30' \
-        -pointsize 22 -font 'Helvetica-Narrow-Bold' \
-        -fill white -draw \"kerning 2 text 3,22 '#{cov}%'\" \
-        -pointsize 19 -fill white -font 'Helvetica' \
-        -draw \"kerning 0.5 text 51,22 '#{name.upcase}'\" \
-        -gravity West -background white -splice 1x0  -background black -splice 1x0 \
-        -trim  +repage -gravity West -chop 1x0 -gravity East \
-        -background silver -splice 2x0 \
-        -format 'roundrectangle 1,1 %[fx:w+10],%[fx:h+4] 10,10' \
-        -write info:tmp.mvg \
+      command = []
+      command[0] = """
+        convert -size 52x25 xc:'#{coverage_color(cov)}' -pointsize 20 -font 'Helvetica-Narrow-Bold' \
+        -gravity east -fill white -draw \"kerning 2 text +2,+2 '#{cov}%'\" \
         -alpha set -bordercolor none -border 3 \
-        \\( +clone -alpha transparent -background none \
-           -fill white -stroke none -strokewidth 0 -draw @tmp.mvg \\) \
-        -compose DstIn -composite \\) -gravity West -background none -append #{output_path}/coverage-badge.png
-        """
-        if system(command)
-          system('rm tmp.mvg')
-        else
-          return false
+        -gravity North -chop 0x3 \
+        -gravity South -chop 0x3 \
+        -gravity East -chop 3x0 #{output_path}/tmp.png
+      """
+      command[1] = """
+        convert #{output_path}/tmp.png \\( -size 300x25 xc:transparent \
+        -pointsize 17 -fill '#{strength_color(strength)}' -font 'Helvetica-Bold' \
+        -draw \"kerning 0.5 text 4,19 '#{name.upcase}'\" \
+        -gravity West -background white -splice 1x0 -background black -splice 1x0 \
+        -trim  +repage -gravity West -chop 1x0 -gravity East \
+        -background none -splice 2x0 \
+        -alpha set -bordercolor none -border 3 \
+        -gravity North -chop 0x3 -gravity South -chop 0x3 \
+        -strokewidth 2 -format 'stroke white line 1,1 %[fx:w],3' \\) \
+        -background none +append #{output_path}/tmp.png
+      """
+      command[2] = """
+        convert #{output_path}/tmp.png \\( +clone -alpha extract \
+        \\( -size 5x2 xc:black -draw 'fill white circle 8,8 8,0' -write mpr:arc +delete \\) \
+        \\( mpr:arc -flip \\) -gravity southwest -composite \
+        \\( mpr:arc -rotate 180 \\) -gravity southeast -composite \\) \
+        -alpha off -compose CopyOpacity -composite \
+        #{output_path}/tmp.png
+      """
+      command[3] = """
+        convert #{output_path}/coverage-badge.png #{output_path}/tmp.png -gravity West -background none -append #{output_path}/coverage-badge.png
+      """
+      begin
+        command.each_with_index do |cmd, y|
+          next cmd if y == 2 #and i != result.groups.count
+          raise Exception unless system(cmd)
         end
+      ensure
+        system("rm #{output_path}/tmp.png")
+      end
     end
+    timestamp_cmd = """
+      convert #{output_path}/coverage-badge.png -alpha set -bordercolor none -border 3 \
+      -gravity North -chop 0x3 \
+      -gravity East -chop 3x0 \
+      -gravity West -chop 3x0 \\( -background none -font 'Helvetica' label:'Generated #{Time.current.strftime('%m-%d-%y %H:%M UTC')}' \\) -background none -gravity center -append #{output_path}/coverage-badge.png
+    """
+    raise Exception unless system(timestamp_cmd)
   end
 
   def output_path
     SimpleCov.coverage_path
   end
 
-  def coverage_css_class(covered_percent)
+  def coverage_color(covered_percent)
     if covered_percent > 90
-      'green'
+      '#4fb151'
     elsif covered_percent > 80
-      'yellow'
+      '#ded443'
     else
-      'red'
+      '#a23e3f'
     end
   end
 
-  def strength_css_class(covered_strength)
+  def strength_color(covered_strength)
     if covered_strength > 1
-      'green'
+      '#4fb151'
     elsif covered_strength == 1
-      'yellow'
+      '#ded443'
     else
-      'red'
+      '#4fb151'
     end
   end
   
