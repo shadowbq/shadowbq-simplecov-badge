@@ -7,7 +7,7 @@ ImageMagickError = Class.new(StandardError)
   
 class SimpleCov::Formatter::BadgeFormatter  
   # Set up config variables.
-  options = {:generate_groups => true, :timestamp => false, :green => '#4fb151',
+  options = {:strength_indicator_title => 'TEST COVERAGE', :generate_groups => true, :timestamp => false, :green => '#4fb151',
             :yellow => '#ded443', :red => '#a23e3f', :number_font => 'Helvetica-Narrow-Bold',
             :number_font_size => 20, :name_font => 'Helvetica', :name_font_size => 17,
             :badge_height => 25, :use_strength_color => true, :strength_foreground => false,
@@ -56,7 +56,7 @@ class SimpleCov::Formatter::BadgeFormatter
     command[1] = """
       convert #{output_path}/tmp.png \\( -size 237x#{@@badge_height} xc:'#{strength_background(overall_strength, @@strength_foreground)}' \
       -pointsize #{@@name_font_size} -fill '#{strength_foreground(overall_strength, @@strength_foreground)}' -font '#{@@name_font}' \
-      -draw \"kerning 1 text 4,19 'OVERALL STRENGTH'\" \
+      -draw \"kerning 1 text 4,19 '#{strength_indicator_title}'\" \
       -gravity West \
       -background white -splice 1x0  -background black -splice 1x0 \
       -trim  +repage -gravity West -chop 1x0 -gravity East \
