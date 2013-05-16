@@ -1,6 +1,6 @@
 # Badge formatter for SimpleCov
 [ ![Codeship Status for matthew342/simplecov-badge](https://www.codeship.io/projects/c46ee0e0-9da1-0130-7a9e-0e0ae47480c0/status?branch=master)](https://www.codeship.io/projects/3367)
-[ ![Code Coverage for matthew342/simplecov-badge](http://matthew342.github.io/simplecov-badge/coverage/coverage-badge.png)](http://matthew342.github.io/simplecov-badge/coverage/index.html)
+[ ![Code Coverage for matthew342/simplecov-badge](https://raw.github.com/matthew342/simplecov-badge/gh-pages/coverage/coverage-badge.png)](http://matthew342.github.io/simplecov-badge/coverage/index.html)
 
 Generates coverage badges from SimpleCov using ImageMagick.  Great for small private repos that don't want to pay for a [hosted service](https://coveralls.io/).
 
