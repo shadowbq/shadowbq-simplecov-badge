@@ -14,26 +14,26 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-05-16T17:53:42+00:00">2013-05-16T17:53:42+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-05-16T22:36:13+00:00">2013-05-16T22:36:13+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">92.05%</span></span>
+    (<span class="covered_percent"><span class="green">93.33%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.9
+         4.3
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>1</b> files in total.
-    <b>88</b> relevant lines. 
-    <span class="green"><b>81</b> lines covered</span> and
+    <b>105</b> relevant lines. 
+    <span class="green"><b>98</b> lines covered</span> and
     <span class="red"><b>7</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#fe1056076b2e62422df1469e2138d539adb4ac4d" class="src_link" title="lib/simplecov-badge.rb">lib/simplecov-badge.rb</a></td>
-        <td class="green strong">92.05 %</td>
-        <td>210</td>
-        <td>88</td>
-        <td>81</td>
+        <td class="green strong">93.33 %</td>
+        <td>223</td>
+        <td>105</td>
+        <td>98</td>
         <td>7</td>
-        <td>2.9</td>
+        <td>4.3</td>
       </tr>
       
     </tbody>
@@ -79,10 +79,10 @@
         <div class="source_table" id="fe1056076b2e62422df1469e2138d539adb4ac4d">
   <div class="header">
     <h3>lib/simplecov-badge.rb</h3>
-    <h4><span class="green">92.05 %</span> covered</h4>
+    <h4><span class="green">93.33 %</span> covered</h4>
     <div>
-      <b>88</b> relevant lines. 
-      <span class="green"><b>81</b> lines covered</span> and
+      <b>105</b> relevant lines. 
+      <span class="green"><b>98</b> lines covered</span> and
       <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
@@ -147,7 +147,7 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  options = {:strength_indicator_title =&gt; 'TEST COVERAGE', :generate_groups =&gt; true, :timestamp =&gt; false, :green =&gt; '#4fb151',</code>
+          <code class="ruby">  options = {:badge_title =&gt; 'TEST COVERAGE', :generate_groups =&gt; true, :timestamp =&gt; false, :green =&gt; '#4fb151',</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
@@ -165,7 +165,7 @@
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">            :badge_height =&gt; 25, :use_strength_color =&gt; true, :strength_foreground =&gt; false,</code>
+          <code class="ruby">            :badge_height =&gt; 27, :strength_foreground =&gt; false,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
@@ -183,13 +183,13 @@
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">            :group_badge_height =&gt; 25, :use_strength_color_for_group_name =&gt; true, </code>
+          <code class="ruby">            :group_badge_height =&gt; 27, :group_strength_foreground =&gt; true, :color_code_title =&gt; true,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">            :group_strength_foreground =&gt; true}</code>
+          <code class="ruby">            :group_color_code_title =&gt; true}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
@@ -291,277 +291,277 @@
         <li class="covered" data-hits="2" data-linenumber="34">
           <span class="hits">2</span>
           
-          <code class="ruby">      puts output_message(result)</code>
+          <code class="ruby">      generate_timestamp if @@timestamp</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="35">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="35">
+          <span class="hits">2</span>
           
-          <code class="ruby">    rescue ImageMagickError =&gt; e</code>
+          <code class="ruby">      puts output_message(result)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
-          <code class="ruby">     puts e</code>
+          <code class="ruby">    rescue ImageMagickError =&gt; e</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">     puts &quot;Simplecov-Badge was unable to generate a badge for #{result.command_name}.&quot;</code>
+          <code class="ruby">     puts e</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">     puts &quot;Simplecov-Badge was unable to generate a badge for #{result.command_name}.&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="41">
+        <li class="covered" data-hits="1" data-linenumber="42">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
+        <li class="covered" data-hits="1" data-linenumber="44">
           <span class="hits">1</span>
           
           <code class="ruby">  def generate_header_badge(result)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
+        <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
           <code class="ruby">    overall_cov = result.source_files.covered_percent.round(0)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
           <code class="ruby">    overall_strength = result.covered_strength.round(0)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="46">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    command = []</code>
-        </li>
-      
         <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">    command[0] = &quot;&quot;&quot;</code>
+          <code class="ruby">    generator(overall_cov, overall_strength, false)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">      convert -size 52x#{@@badge_height} xc:'#{coverage_color(overall_cov)}' -pointsize #{@@number_font_size} -font '#{@@number_font}' \</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">      -gravity east -fill white -draw \&quot;kerning 2 text +2,+2 '#{overall_cov}%'\&quot; \</code>
+          <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      -alpha set -bordercolor none -border 3 \</code>
+          <code class="ruby">  def generate_group_badges(result)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      -gravity North -chop 0x3 \</code>
+          <code class="ruby">    result.groups.each do |name, files|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="covered" data-hits="2" data-linenumber="52">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">      -gravity South -chop 0x3 \</code>
+          <code class="ruby">      cov = files.covered_percent.round(0)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="covered" data-hits="2" data-linenumber="53">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">      -gravity West -chop 3x0 \</code>
+          <code class="ruby">      strength = files.covered_strength.round(0)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="covered" data-hits="2" data-linenumber="54">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">      #{output_path}/tmp.png</code>
+          <code class="ruby">      generator(cov, strength, name)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">      &quot;&quot;&quot;</code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="56">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="56">
           
-          <code class="ruby">    command[1] = &quot;&quot;&quot;</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="57">
           
           
-          <code class="ruby">      convert #{output_path}/tmp.png \\( -size 237x#{@@badge_height} xc:'#{strength_background(overall_strength, @@strength_foreground)}' \</code>
+          <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      -pointsize #{@@name_font_size} -fill '#{strength_foreground(overall_strength, @@strength_foreground)}' -font '#{@@name_font}' \</code>
+          <code class="ruby">  def generator(cov, strength, group)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="covered" data-hits="3" data-linenumber="59">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">      -draw \&quot;kerning 1 text 4,19 '#{@@strength_indicator_title}'\&quot; \</code>
+          <code class="ruby">    command = []</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="covered" data-hits="3" data-linenumber="60">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">      -gravity West \</code>
+          <code class="ruby">    command[0] = &quot;&quot;&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">      -background white -splice 1x0  -background black -splice 1x0 \</code>
+          <code class="ruby">      convert -size 52x#{get_config('badge_height', group)} xc:'#{coverage_color(cov)}' -pointsize #{get_config('number_font_size', group)} -font \&quot;#{get_config('number_font', group)}\&quot; \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="62">
           
           
-          <code class="ruby">      -trim  +repage -gravity West -chop 1x0 -gravity East \</code>
+          <code class="ruby">      -gravity center -fill white -draw \&quot;kerning 2 text +2,-1 '#{cov}%'\&quot; \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="63">
           
           
-          <code class="ruby">      -background '#{strength_background(overall_strength, @@strength_foreground)}' -splice 2x0 \\) \</code>
+          <code class="ruby">      -pointsize 10 -font \&quot;#{get_config('number_font', group)}\&quot; \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
           
           
-          <code class="ruby">      -background none +append #{output_path}/tmp.png</code>
+          <code class="ruby">      -gravity south -fill white -draw \&quot;text 0,-1 'coverage'\&quot; \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="65">
           
           
-          <code class="ruby">      &quot;&quot;&quot;</code>
+          <code class="ruby">      -alpha set -bordercolor none -border 3 \</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="66">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="66">
           
-          <code class="ruby">    command[2] = &quot;&quot;&quot;</code>
+          
+          <code class="ruby">      -gravity North -chop 0x3 \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">      convert #{output_path}/tmp.png -format 'roundrectangle 1,1 %[fx:w+4],%[fx:h+#{@@badge_height}] 10,10' \</code>
+          <code class="ruby">      -gravity South -chop 0x3 \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="68">
           
           
-          <code class="ruby">      -write info:#{output_path}/tmp.mvg \</code>
+          <code class="ruby">      -gravity West -chop 3x0 \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="69">
           
           
-          <code class="ruby">      -alpha set -bordercolor none -border 3 \</code>
+          <code class="ruby">      #{output_path}/tmp.png</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="70">
           
           
-          <code class="ruby">      \\( +clone -alpha transparent -background none \</code>
+          <code class="ruby">      &quot;&quot;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="covered" data-hits="3" data-linenumber="71">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">      -fill white -stroke none -strokewidth 0 -draw @#{output_path}/tmp.mvg \\) \</code>
+          <code class="ruby">    command[1] = &quot;&quot;&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="72">
           
           
-          <code class="ruby">      -compose DstIn -composite \</code>
+          <code class="ruby">      convert #{output_path}/tmp.png \\( -size 260x#{get_config('badge_height', group)} xc:\&quot;#{title_background(cov, strength, get_config('strength_foreground', group), get_config('color_code_title', group))}\&quot; \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="73">
           
           
-          <code class="ruby">      -gravity South -chop 0x3 #{output_path}/tmp.png</code>
+          <code class="ruby">      -pointsize #{get_config('name_font_size', group)} -fill \&quot;#{title_foreground(cov, strength, get_config('strength_foreground', group), get_config('color_code_title', group))}\&quot; -font \&quot;#{get_config('name_font', group)}\&quot; \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="74">
           
           
-          <code class="ruby">      &quot;&quot;&quot;</code>
+          <code class="ruby">      -draw \&quot;kerning 1 text 4,19 '#{group ? group.upcase : @@badge_title}'\&quot; \</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="75">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="75">
           
-          <code class="ruby">    command[3] = &quot;&quot;&quot;</code>
+          
+          <code class="ruby">      -gravity West -background white -splice 1x0  \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="76">
           
           
-          <code class="ruby">      convert #{output_path}/tmp.png \\( +clone -alpha extract \</code>
+          <code class="ruby">      -background black -splice 1x0 -trim  +repage \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="77">
           
           
-          <code class="ruby">      \\( -size 5x2 xc:black -draw 'fill white circle 8,8 8,0' -write mpr:arc +delete \\) \</code>
+          <code class="ruby">      -gravity West -chop 1x0 -gravity East \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="78">
           
           
-          <code class="ruby">      \\( mpr:arc -rotate 180 \\) -gravity southeast -composite \\) \</code>
+          <code class="ruby">      -background \&quot;#{title_background(cov, strength, get_config('strength_foreground', group), get_config('color_code_title', group))}\&quot; -splice 3x0 \\) \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="79">
           
           
-          <code class="ruby">      -alpha off -compose CopyOpacity -composite #{output_path}/coverage-badge.png</code>
+          <code class="ruby">      -background none +append #{output_path}/tmp.png</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="80">
@@ -570,340 +570,340 @@
           <code class="ruby">      &quot;&quot;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="81">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="81">
+          <span class="hits">3</span>
           
-          <code class="ruby">    begin</code>
+          <code class="ruby">    command[2] =   &quot;&quot;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="82">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="82">
           
-          <code class="ruby">      command.each do |cmd|</code>
+          
+          <code class="ruby">        convert #{output_path}/tmp.png \\( -size 52x#{get_config('badge_height', group)} xc:\&quot;#{strength_background(strength, get_config('strength_foreground', group))}\&quot; -pointsize #{get_config('number_font_size', group)} -font \&quot;#{get_config('number_font', group)}\&quot; \</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="83">
-          <span class="hits">4</span>
+        <li class="never" data-hits="" data-linenumber="83">
           
-          <code class="ruby">        output = `#{cmd}`</code>
+          
+          <code class="ruby">        -gravity Center -fill white -draw \&quot;kerning 2 text 0,-1 '#{strength}'\&quot; \</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="84">
-          <span class="hits">4</span>
+        <li class="never" data-hits="" data-linenumber="84">
           
-          <code class="ruby">        check_status(output)</code>
+          
+          <code class="ruby">        -pointsize 10 -font \&quot;#{get_config('number_font', group)}\&quot; \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="85">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">        -gravity south -fill white -draw \&quot;text 0,-1 'hits/line'\&quot; \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="86">
           
           
-          <code class="ruby">    ensure</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="87">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      system(&quot;rm #{output_path}/tmp.mvg&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="88">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      system(&quot;rm #{output_path}/tmp.png&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="91">
-          
-          
-          <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="92">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def generate_group_badges(result)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="93">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    result.groups.each do |name, files|</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="94">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      cov = files.covered_percent.round(0)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="95">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      strength = files.covered_strength.round(0)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="96">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      command = []</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="97">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      command[0] = &quot;&quot;&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="98">
-          
-          
-          <code class="ruby">        convert -size 52x#{@@group_badge_height} xc:'#{coverage_color(cov)}' -pointsize #{@@group_number_font_size} -font '#{@@group_number_font}' \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby">        -gravity east -fill white -draw \&quot;kerning 2 text +2,+2 '#{cov}%'\&quot; \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="100">
-          
-          
           <code class="ruby">        -alpha set -bordercolor none -border 3 \</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="101">
+        <li class="never" data-hits="" data-linenumber="87">
           
           
           <code class="ruby">        -gravity North -chop 0x3 \</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="102">
+        <li class="never" data-hits="" data-linenumber="88">
           
           
           <code class="ruby">        -gravity South -chop 0x3 \</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="never" data-hits="" data-linenumber="89">
           
           
-          <code class="ruby">        -gravity East -chop 3x0 #{output_path}/tmp.png</code>
+          <code class="ruby">        -gravity East -chop 3x0 \\) \</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
-          
-          
-          <code class="ruby">      &quot;&quot;&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="105">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      command[1] = &quot;&quot;&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="106">
-          
-          
-          <code class="ruby">        convert #{output_path}/tmp.png \\( -size 300x#{@@group_badge_height} xc:#{strength_background(strength, @@group_strength_foreground)} \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="107">
-          
-          
-          <code class="ruby">        -pointsize #{@@group_name_font_size} -fill '#{strength_foreground(strength, @@group_strength_foreground)}' -font '#{@@group_name_font}' \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="108">
-          
-          
-          <code class="ruby">        -draw \&quot;kerning 0.5 text 4,19 '#{name.upcase}'\&quot; \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="109">
-          
-          
-          <code class="ruby">        -gravity West -background white -splice 1x0 -background black -splice 1x0 \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="110">
-          
-          
-          <code class="ruby">        -trim  +repage -gravity West -chop 1x0 -gravity East \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="111">
-          
-          
-          <code class="ruby">        -background '#{strength_background(strength, @@group_strength_foreground)}' -splice 2x0 \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="112">
-          
-          
-          <code class="ruby">        -alpha set -bordercolor none -border 3 \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="113">
-          
-          
-          <code class="ruby">        -gravity North -chop 0x3 -gravity South -chop 0x3 \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="114">
-          
-          
-          <code class="ruby">        -strokewidth 2 -format 'stroke white line 1,1 %[fx:w],3' \\) \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="115">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby">        -background none +append #{output_path}/tmp.png</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="116">
+        <li class="never" data-hits="" data-linenumber="91">
+          
+          
+          <code class="ruby">        &quot;&quot;&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="92">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    command[3] = &quot;&quot;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
+          
+          
+          <code class="ruby">      convert #{output_path}/tmp.png -format 'roundrectangle 1,1 %[fx:w+4],%[fx:h+4] 10,10' \</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby">      -write info:#{output_path}/tmp.mvg \</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">      -alpha set -bordercolor none -border 3 \</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="96">
+          
+          
+          <code class="ruby">      \\( +clone -alpha transparent -background none \</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby">      -fill white -stroke none -strokewidth 0 -draw @#{output_path}/tmp.mvg \\) \</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="98">
+          
+          
+          <code class="ruby">      -compose DstIn -composite \</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="99">
+          
+          
+          <code class="ruby">      -gravity South -chop 0x1 #{output_path}/tmp.png</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="100">
           
           
           <code class="ruby">      &quot;&quot;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="117">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="101">
+          <span class="hits">3</span>
           
-          <code class="ruby">      command[2] = &quot;&quot;&quot;</code>
+          <code class="ruby">    command[4] = &quot;&quot;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="102">
+          
+          
+          <code class="ruby">      convert #{output_path}/tmp.png #{output_path}/coverage-badge.png</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="103">
+          
+          
+          <code class="ruby">      &quot;&quot;&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="104">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    command[5] = &quot;&quot;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="105">
+          
+          
+          <code class="ruby">      convert #{output_path}/coverage-badge.png #{output_path}/tmp.png -background none -gravity center -append #{output_path}/coverage-badge.png</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="106">
+          
+          
+          <code class="ruby">      &quot;&quot;&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="107">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    begin</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="108">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      command.each_with_index do |cmd, i|</code>
+        </li>
+      
+        <li class="covered" data-hits="18" data-linenumber="109">
+          <span class="hits">18</span>
+          
+          <code class="ruby">        next i if i == 4 unless group == false</code>
+        </li>
+      
+        <li class="covered" data-hits="16" data-linenumber="110">
+          <span class="hits">16</span>
+          
+          <code class="ruby">        next i if i == 5 if group == false</code>
+        </li>
+      
+        <li class="covered" data-hits="15" data-linenumber="111">
+          <span class="hits">15</span>
+          
+          <code class="ruby">        output = `#{cmd}`</code>
+        </li>
+      
+        <li class="covered" data-hits="15" data-linenumber="112">
+          <span class="hits">15</span>
+          
+          <code class="ruby">        check_status(output)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="113">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="114">
+          
+          
+          <code class="ruby">    ensure</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="115">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      system(&quot;rm #{output_path}/tmp.mvg&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="116">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      system(&quot;rm #{output_path}/tmp.png&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="118">
           
           
-          <code class="ruby">        convert #{output_path}/tmp.png \\( +clone -alpha extract \</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="119">
           
           
-          <code class="ruby">        \\( -size 5x2 xc:black -draw 'fill white circle 8,8 8,0' -write mpr:arc +delete \\) \</code>
+          <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="covered" data-hits="1" data-linenumber="120">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        \\( mpr:arc -flip \\) -gravity southwest -composite \</code>
+          <code class="ruby">  def generate_timestamp</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="121">
+        <li class="missed" data-hits="0" data-linenumber="121">
           
           
-          <code class="ruby">        \\( mpr:arc -rotate 180 \\) -gravity southeast -composite \\) \</code>
+          <code class="ruby">    timestamp_cmd = &quot;&quot;&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="122">
           
           
-          <code class="ruby">        -alpha off -compose CopyOpacity -composite \</code>
+          <code class="ruby">      convert #{output_path}/coverage-badge.png -alpha set -bordercolor none -border 3 \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="123">
           
           
-          <code class="ruby">        #{output_path}/tmp.png</code>
+          <code class="ruby">      -gravity North -chop 0x3 \</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="124">
           
           
-          <code class="ruby">      &quot;&quot;&quot;</code>
+          <code class="ruby">      -gravity East -chop 3x0 \</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="125">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="125">
           
-          <code class="ruby">      command[3] = &quot;&quot;&quot;</code>
+          
+          <code class="ruby">      -gravity West -chop 3x0 \\( -background none -font 'Helvetica' label:'Generated #{Time.current.strftime('%m-%d-%y %H:%M UTC')}' \\) -background none -gravity center -append #{output_path}/coverage-badge.png</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="126">
           
           
-          <code class="ruby">        convert #{output_path}/coverage-badge.png #{output_path}/tmp.png -gravity West -background none -append #{output_path}/coverage-badge.png</code>
+          <code class="ruby">    &quot;&quot;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="missed" data-hits="0" data-linenumber="127">
           
           
-          <code class="ruby">      &quot;&quot;&quot;</code>
+          <code class="ruby">    output = `#{timestamp_cmd}`</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="128">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="128">
           
-          <code class="ruby">      begin</code>
+          
+          <code class="ruby">    check_status(output)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="129">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="129">
           
-          <code class="ruby">        command.each_with_index do |cmd, y|</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="130">
-          <span class="hits">8</span>
+        <li class="never" data-hits="" data-linenumber="130">
           
-          <code class="ruby">          next cmd if y == 2 #and i != result.groups.count</code>
+          
+          <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="131">
-          <span class="hits">6</span>
+        <li class="never" data-hits="" data-linenumber="131">
           
-          <code class="ruby">          output = `#{cmd}`</code>
+          
+          <code class="ruby">  # getter method for config variables - abstracts group or main badge from generator</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="132">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="1" data-linenumber="132">
+          <span class="hits">1</span>
           
-          <code class="ruby">          check_status(output)</code>
+          <code class="ruby">  def get_config(name, group)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="133">
+        <li class="covered" data-hits="54" data-linenumber="133">
+          <span class="hits">54</span>
           
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">    if group</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="134">
+        <li class="covered" data-hits="36" data-linenumber="134">
+          <span class="hits">36</span>
           
-          
-          <code class="ruby">      ensure</code>
+          <code class="ruby">      eval(&quot;@@group_#{name}&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="135">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="135">
           
-          <code class="ruby">        system(&quot;rm #{output_path}/tmp.png&quot;)</code>
+          
+          <code class="ruby">    else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="136">
+        <li class="covered" data-hits="18" data-linenumber="136">
+          <span class="hits">18</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">      eval(&quot;@@#{name}&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="137">
@@ -912,439 +912,517 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="138">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="138">
           
-          <code class="ruby">    if @@timestamp</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="139">
+        <li class="never" data-hits="" data-linenumber="139">
           
           
-          <code class="ruby">      timestamp_cmd = &quot;&quot;&quot;</code>
+          <code class="ruby">  </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="140">
           
           
-          <code class="ruby">        convert #{output_path}/coverage-badge.png -alpha set -bordercolor none -border 3 \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="141">
-          
-          
-          <code class="ruby">        -gravity North -chop 0x3 \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="142">
-          
-          
-          <code class="ruby">        -gravity East -chop 3x0 \</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="143">
-          
-          
-          <code class="ruby">        -gravity West -chop 3x0 \\( -background none -font 'Helvetica' label:'Generated #{Time.current.strftime('%m-%d-%y %H:%M UTC')}' \\) -background none -gravity center -append #{output_path}/coverage-badge.png</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="144">
-          
-          
-          <code class="ruby">      &quot;&quot;&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="145">
-          
-          
-          <code class="ruby">      output = `#{timestamp_cmd}`</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="146">
-          
-          
-          <code class="ruby">      check_status(output)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="147">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="148">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="149">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="150">
-          
-          
           <code class="ruby">  # checks if imagemagick is installed and working</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="151">
+        <li class="covered" data-hits="1" data-linenumber="141">
           <span class="hits">1</span>
           
           <code class="ruby">  def check_imagemagick</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="152">
+        <li class="missed" data-hits="0" data-linenumber="142">
           
           
           <code class="ruby">    output = `convert`</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="153">
+        <li class="missed" data-hits="0" data-linenumber="143">
           
           
           <code class="ruby">    raise ImageMagickError, &quot;ImageMagick doesn't appear to be installed.&quot; unless $?.to_i == 0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="154">
+        <li class="never" data-hits="" data-linenumber="144">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="155">
+        <li class="never" data-hits="" data-linenumber="145">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="156">
+        <li class="never" data-hits="" data-linenumber="146">
+          
+          
+          <code class="ruby">  # Checks exit status after running a command with backtick</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="147">
           <span class="hits">1</span>
           
           <code class="ruby">  def check_status(output)</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="157">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="15" data-linenumber="148">
+          <span class="hits">15</span>
           
           <code class="ruby">    raise ImageMagickError, &quot;ImageMagick exited with an error. It said:\n #{output}&quot; unless $?.to_i == 0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="158">
+        <li class="never" data-hits="" data-linenumber="149">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="159">
+        <li class="never" data-hits="" data-linenumber="150">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="160">
+        <li class="covered" data-hits="1" data-linenumber="151">
           <span class="hits">1</span>
           
           <code class="ruby">  def output_message(result)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="161">
+        <li class="covered" data-hits="2" data-linenumber="152">
           <span class="hits">2</span>
           
           <code class="ruby">    &quot;Coverage badge generated for #{result.command_name} to #{output_path}.&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="162">
+        <li class="never" data-hits="" data-linenumber="153">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="163">
+        <li class="never" data-hits="" data-linenumber="154">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="164">
+        <li class="covered" data-hits="1" data-linenumber="155">
           <span class="hits">1</span>
           
           <code class="ruby">  def output_path</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="165">
+        <li class="missed" data-hits="0" data-linenumber="156">
           
           
           <code class="ruby">    SimpleCov.coverage_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="166">
+        <li class="never" data-hits="" data-linenumber="157">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="167">
+        <li class="never" data-hits="" data-linenumber="158">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="168">
+        <li class="covered" data-hits="1" data-linenumber="159">
           <span class="hits">1</span>
           
-          <code class="ruby">  def strength_background(strength, foreground)</code>
+          <code class="ruby">  def title_background(cov, strength, foreground, use)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="169">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="160">
+          <span class="hits">5</span>
           
-          <code class="ruby">    if foreground</code>
+          <code class="ruby">    if !use</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="170">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      'transparent'</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="171">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="172">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      strength_color(strength, @@use_strength_color)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="173">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="174">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="175">
-          
-          
-          <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="176">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def strength_foreground(strength, foreground)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="177">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    unless foreground</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="178">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      'white'</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="179">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="180">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      strength_color(strength, @@use_strength_color)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="181">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="182">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="183">
-          
-          
-          <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="184">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def coverage_color(covered_percent)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="185">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    if covered_percent &gt; 90</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="186">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      @@green</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="187">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    elsif covered_percent &gt; 80</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="188">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      @@yellow</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="189">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="190">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      @@red</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="191">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="192">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="193">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="194">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def strength_color(covered_strength, use)</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="195">
-          <span class="hits">4</span>
-          
-          <code class="ruby">    if use</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="196">
-          <span class="hits">3</span>
-          
-          <code class="ruby">      if covered_strength &gt; 1</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="197">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @@green</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="198">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      elsif covered_strength == 1</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="199">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @@yellow</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="200">
-          
-          
-          <code class="ruby">      else</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="201">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @@red</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="202">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="203">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="204">
+        <li class="covered" data-hits="1" data-linenumber="161">
           <span class="hits">1</span>
           
           <code class="ruby">      'silver'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="205">
+        <li class="covered" data-hits="4" data-linenumber="162">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    elsif foreground</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="163">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      'transparent'</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="164">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    elsif cov &gt; 90 and strength &gt; 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="165">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@green</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="166">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    elsif cov &gt; 80 and strength &gt;= 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="167">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@yellow</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="168">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="169">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@red</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="170">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="206">
+        <li class="never" data-hits="" data-linenumber="171">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="207">
+        <li class="never" data-hits="" data-linenumber="172">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="173">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def title_foreground(cov, strength, foreground, use)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="174">
+          <span class="hits">5</span>
+          
+          <code class="ruby">    if !foreground or !use</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="175">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      'white'</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="176">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    elsif cov &gt; 90 and strength &gt; 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="177">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@green</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="178">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    elsif cov &gt; 80 and strength &gt;= 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="179">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@yellow</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="180">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="181">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@red</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="182">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="183">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="184">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="185">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def strength_background(strength, foreground)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="186">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    if foreground</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="187">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      'transparent'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="188">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="189">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      strength_color(strength)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="190">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="191">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="192">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="193">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def strength_foreground(strength, foreground)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="194">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    unless foreground</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="195">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      'white'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="196">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="197">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      strength_color(strength)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="198">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="199">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="200">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="201">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def coverage_color(covered_percent)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="202">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    if covered_percent &gt; 90</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="203">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@green</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="204">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    elsif covered_percent &gt; 80</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="205">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@yellow</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="206">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="207">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@red</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="208">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="209">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="210">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="209">
+        <li class="covered" data-hits="1" data-linenumber="211">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def strength_color(covered_strength)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="212">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    if covered_strength &gt; 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="213">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@green</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="214">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    elsif covered_strength == 1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="215">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@yellow</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="216">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="217">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @@red</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="218">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="219">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="220">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="221">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="222">
           <span class="hits">1</span>
           
           <code class="ruby">$LOAD_PATH.unshift(File.join(File.dirname(__FILE__)))</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="210">
+        <li class="covered" data-hits="1" data-linenumber="223">
           <span class="hits">1</span>
           
           <code class="ruby">require 'simplecov-badge/version'</code>
