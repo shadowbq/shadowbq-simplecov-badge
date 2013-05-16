@@ -50,7 +50,7 @@ You can do something like this as the last step in your build/deploy (assuming y
     cd ..
     git clone --branch gh-pages  git@github.com:matthew342/simplecov-badge.git gh-pages-clone
     cd gh-pages-clone
-    cp -r ../tmp-coverage/. coverage/
+    cp -r ../tmp-coverage/. .
     rm -r ../tmp-coverage
     git add .
     git commit -a -m "CI: Coverage for $COMMIT_ID"
