@@ -44,15 +44,17 @@ Your badge will be generated in the /coverage directory of your project folder. 
 You can do something like this as the last step in your build/deploy (assuming you've already created an orphan gh-pages branch):
 
     mkdir ../tmp-coverage
-	cp -r coverage/ ../tmp-coverage/
-	git config --global user.email "CI@example.com"
-	git config --global user.name "CI Server"
-	git checkout gh-pages
-	cp -r ../tmp-coverage/ .
-	rm -r ../tmp-coverage
-	git add .
-	git commit -a -m "CI: Coverage for $COMMIT_ID"
-	git push origin gh-pages:gh-pages
+    cp -r coverage/ ../tmp-coverage/
+    git config --global user.email "CI@example.com"
+    git config --global user.name "CI Server"
+    cd ..
+    git clone --branch gh-pages  git@github.com:matthew342/simplecov-badge.git gh-pages-clone
+    cd gh-pages-clone
+    cp -r ../tmp-coverage/. coverage/
+    rm -r ../tmp-coverage
+    git add .
+    git commit -a -m "CI: Coverage for $COMMIT_ID"
+    git push origin gh-pages:gh-pages
 
 REMEMBER Gitub Pages are public - so if your repo is private pushing somewhere else might be a better idea.
 
