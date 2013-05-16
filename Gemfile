@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gemspec
 
@@ -10,6 +10,5 @@ group :development do
     gem 'simplecov', :git => 'https://github.com/colszowka/simplecov'
   end
 
-  gem 'guard-bundler'
-  gem 'guard-rake'
+  gem 'rspec'
 end

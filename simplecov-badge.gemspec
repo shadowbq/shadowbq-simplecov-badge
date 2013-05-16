@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Matt Hale"]
   s.email       = ["matt.hale.0 at gmail dot com"]
-  s.homepage    = "https://github.com/BlackBoxAviation/simplecov-badge"
-  s.summary     = %Q{HTML formatter for SimpleCov code coverage tool for ruby 1.9+}
-  s.description = %Q{HTML formatter for SimpleCov code coverage tool for ruby 1.9+}
+  s.homepage    = "https://github.com/matthew342/simplecov-badge"
+  s.summary     = %Q{Badge generator for SimpleCov code coverage tool for ruby 1.9+}
+  s.description = %Q{Badge generator for SimpleCov code coverage tool for ruby 1.9+}
 
   s.rubyforge_project = "simplecov-badge"
   
