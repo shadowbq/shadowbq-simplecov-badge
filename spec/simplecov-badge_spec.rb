@@ -30,9 +30,11 @@ describe SimpleCov::Formatter::BadgeFormatter do
       @obj.stub(:check_imagemagick).and_return(0)
       @obj.stub(:generate_group_badges).and_return(0)
       @obj.stub(:coverage_color).and_return('green')
-      @obj.stub(:strength_color).and_return('green')
-      @obj.stub(:strength_foreground).and_return('green')
-      @obj.stub(:strength_background).and_return('transparent')
+      @obj.stub(:strength_color).and_return(@obj.class.green)
+      @obj.stub(:strength_foreground).and_return('white')
+      @obj.stub(:strength_background).and_return(@obj.class.green)
+      @obj.stub(:title_foreground).and_return('white')
+      @obj.stub(:title_background).and_return(@obj.class.green)
       @obj.stub(:output_path).and_return('.')
       result = double('Result')
       result.stub_chain('source_files.covered_percent').and_return(50)
@@ -44,30 +46,51 @@ describe SimpleCov::Formatter::BadgeFormatter do
     end
  
     it 'should generate group badges' do
-          SimpleCov::Formatter::BadgeFormatter.generate_groups = true
-          result = double('Result')
-          result.stub(:command_name) {'test'}
-          files = double("files")
-          files.stub('covered_percent').and_return(50)
-          files.stub('covered_strength').and_return(90)
-          groups = {'group1' => files, 'group2' => files}
-          result.stub_chain('groups').and_return(groups)
-          @obj.stub(:check_imagemagick).and_return(0)
-          @obj.stub(:generate_header_badge).and_return(0)
-          @obj.stub(:coverage_color).and_return('green')
-          @obj.stub(:strength_color).and_return('green')
-          @obj.stub(:strength_foreground).and_return('green')
-          @obj.stub(:strength_background).and_return('transparent')
-          @obj.stub(:output_path).and_return('.')
-          expect{ @obj.format(result) }.to change{File.size('coverage-badge.png')}
-          $?.success?.should eq(true)
-        end
+      SimpleCov::Formatter::BadgeFormatter.generate_groups = true
+      result = double('Result')
+      result.stub(:command_name) {'test'}
+      files = double("files")
+      files.stub('covered_percent').and_return(50)
+      files.stub('covered_strength').and_return(90)
+      groups = {'group1' => files, 'group2' => files}
+      result.stub_chain('groups').and_return(groups)
+      @obj.stub(:check_imagemagick).and_return(0)
+      @obj.stub(:generate_header_badge).and_return(0)
+      @obj.stub(:coverage_color).and_return('green')
+      @obj.stub(:strength_color).and_return('green')
+      @obj.stub(:strength_foreground).and_return('white')
+      @obj.stub(:strength_background).and_return(@obj.class.green)
+      @obj.stub(:title_foreground).and_return('white')
+      @obj.stub(:title_background).and_return(@obj.class.green)
+      @obj.stub(:output_path).and_return('.')
+      expect{ @obj.format(result) }.to change{File.size('coverage-badge.png')}
+      $?.success?.should eq(true)
+    end
 
     describe 'generation helpers' do
       # Calling all these private methods here is a little ugly; but it seemed like the
       # right thing in this case - testing these through public methods (format) just
       # isn't possible
-      
+     describe 'title_background' do
+        it 'returns transparent if foreground and lowest color if not' do
+          @obj.instance_eval{title_background(60, 1, true, true)}.should eq('transparent')
+          @obj.instance_eval{title_background(91,1.1, false, true)}.should eq(@obj.class.green)
+          @obj.instance_eval{title_background(91,1, false, true)}.should eq(@obj.class.yellow)
+          @obj.instance_eval{title_background(65,1, false, true)}.should eq(@obj.class.red)
+          @obj.instance_eval{title_background(90,1, false, false)}.should eq('silver')
+        end
+      end
+
+      describe 'title_foreground' do
+        it 'returns white unless foreground and lowest color otherwise' do
+          @obj.instance_eval{title_foreground(60,2,false, true)}.should eq('white')
+          @obj.instance_eval{title_foreground(91,2,true, true)}.should eq(@obj.class.green)
+          @obj.instance_eval{title_foreground(85,2,true, true)}.should eq(@obj.class.yellow)
+          @obj.instance_eval{title_foreground(85,0.5,true, true)}.should eq(@obj.class.red)
+          @obj.instance_eval{title_foreground(90,1, false, false)}.should eq('white')
+        end
+      end
+        
       describe 'strength_background' do
         it 'returns transparent if foreground and strength_color if not' do
           @obj.instance_eval{strength_background(60, true)}.should eq('transparent')
@@ -94,10 +117,9 @@ describe SimpleCov::Formatter::BadgeFormatter do
 
       describe 'strength_color' do
         it 'returns the correct colors' do
-          @obj.instance_eval{strength_color(1.1, true)}.should eq(@obj.class.green)
-          @obj.instance_eval{strength_color(1, true)}.should eq(@obj.class.yellow)
-          @obj.instance_eval{strength_color(0.9, true)}.should eq(@obj.class.red)
-          @obj.instance_eval{strength_color(0.9, false)}.should eq('silver')
+          @obj.instance_eval{strength_color(1.1)}.should eq(@obj.class.green)
+          @obj.instance_eval{strength_color(1)}.should eq(@obj.class.yellow)
+          @obj.instance_eval{strength_color(0.9)}.should eq(@obj.class.red)
         end
       end
     end
