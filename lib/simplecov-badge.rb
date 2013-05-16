@@ -56,7 +56,7 @@ class SimpleCov::Formatter::BadgeFormatter
     command[1] = """
       convert #{output_path}/tmp.png \\( -size 237x#{@@badge_height} xc:'#{strength_background(overall_strength, @@strength_foreground)}' \
       -pointsize #{@@name_font_size} -fill '#{strength_foreground(overall_strength, @@strength_foreground)}' -font '#{@@name_font}' \
-      -draw \"kerning 1 text 4,19 '#{strength_indicator_title}'\" \
+      -draw \"kerning 1 text 4,19 '#{@@strength_indicator_title}'\" \
       -gravity West \
       -background white -splice 1x0  -background black -splice 1x0 \
       -trim  +repage -gravity West -chop 1x0 -gravity East \
