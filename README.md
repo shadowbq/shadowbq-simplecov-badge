@@ -16,6 +16,7 @@ The left side of the badge shows and is color-coded for the percentage of lines 
 ![Code Coverage for matthew342/simplecov-badge](http://matthew342.github.io/simplecov-badge/coverage-badge-example.png)
 
 ## Installation
+Install [ImageMagick](http://www.imagemagick.org/), then:
 	# In your gemfile
 	gem 'simplecov-badge', :require => false
 	
@@ -70,7 +71,7 @@ Set these in your SimpleCov.start block - see Usage section.
 		<td>Description</td>
 		<td>Default</td>
 	</tr>
-	<tr><td>strength_indicator_title</td><td>Title for right portion of badge, which can be colored according to coverage strength (i.e. >1 hits/line = green, == 1 hits/line = yellow, <1 hits/line = red)</td><td> 'TEST COVERAGE'</td></tr>
+	<tr><td>badge_title</td><td>Center section of badge</td><td> 'TEST COVERAGE'</td></tr>
 	<tr><td>generate_groups </td><td>Whether to generate sub-badges for each group under the main badge</td><td>true</td></tr>
 	<tr><td>timestamp </td><td>Stick a timestamp on the bottom of the badge</td><td> false</td></tr>
 	<tr><td>green </td><td>The specific color to be used for 'green'</td><td> '#4fb151'</td></tr>
@@ -80,16 +81,16 @@ Set these in your SimpleCov.start block - see Usage section.
 <tr><td>number_font_size </td><td>Size of font to use for the coverage percentage (for the main badge)</td><td> 20</td></tr>
 <tr><td>name_font </td><td>The font to use for the name portion of the badge (of the main badge)</td><td> 'Helvetica'</td></tr>
 <tr><td>name_font_size </td><td>Size of font to use for the name portion (of the main badge)</td><td> 17</td></tr>
-<tr><td>badge_height </td><td>Height of the badge</td><td> 25</td></tr>
-<tr><td>use_strength_color </td><td>Whether to color-code the name portion of the badge according to the coverage strength (NOT the covered percentage)</td><td> true</td></tr>
-<tr><td>strength_foreground </td><td>Whether to color the foreground instead of the background when coloring the name portion of the badge according to the coverage strength</td><td> false</td></tr>
+<tr><td>badge_height </td><td>Height of the badge</td><td> 27</td></tr>
+<tr><td>strength_foreground </td><td>Whether to color the foreground instead of the background when coloring the strength portion of the badge</td><td> false</td></tr>
+<tr><td>color_code_title</td><td>Whether to color the middle section of the badge.  If true, will be colored according to the lowest color of the coverage and strength sections </td><td>true</td></tr>
 <tr><td>group_number_font </td><td>Same as above, but for group sub-badges</td><td> 'Helvetica-Narrow-Bold'</td></tr>
-<tr><td>group_number_font_size </td><td>Same as above, but for group sub-badges</td><td> 20</td></tr>
+<tr><td>group_number_font_size </td><td>Same as above, but for group sub-badges</td><td> 18</td></tr>
 <tr><td>group_name_font </td><td>Same as above, but for group sub-badges</td><td> 'Helvetica-Bold'</td></tr>
-<tr><td>group_name_font_size </td><td>Same as above, but for group sub-badges</td><td> 17</td></tr>
-<tr><td>group_badge_height </td><td>Same as above, but for group sub-badges</td><td> 25</td></tr>
-<tr><td>use_strength_color_for_group_name </td><td>Same as above, but for group sub-badges</td><td> true</td></tr> 
-<tr><td>group_strength_foreground </td><td>Same as above, but for group sub-badges</td><td> true</td></tr>
+<tr><td>group_name_font_size </td><td>Same as above, but for group sub-badges</td><td> 15</td></tr>
+<tr><td>group_badge_height </td><td>Same as above, but for group sub-badges</td><td> 22</td></tr>
+<tr><td>group_strength_foreground </td><td>Same as above, but for group sub-badges</td><td>false</td></tr>
+<tr><td>group_color_code_title</td><td>Same as above, but for group sub-badges</td><td> true</td></tr>
 </table>
 
 #### Note on Patches/Pull Requests

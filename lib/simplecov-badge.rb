@@ -11,9 +11,9 @@ class SimpleCov::Formatter::BadgeFormatter
             :yellow => '#ded443', :red => '#a23e3f', :number_font => 'Helvetica-Narrow-Bold',
             :number_font_size => 20, :name_font => 'Helvetica', :name_font_size => 17,
             :badge_height => 27, :strength_foreground => false,
-            :group_number_font => 'Helvetica-Narrow-Bold', :group_number_font_size => 20,
-            :group_name_font => 'Helvetica-Bold', :group_name_font_size => 17,
-            :group_badge_height => 27, :group_strength_foreground => true, :color_code_title => true,
+            :group_number_font => 'Helvetica-Narrow-Bold', :group_number_font_size => 18,
+            :group_name_font => 'Helvetica-Bold', :group_name_font_size => 15,
+            :group_badge_height => 22, :group_strength_foreground => false, :color_code_title => true,
             :group_color_code_title => true}
     
   # set up class variables and getters/setters
@@ -71,7 +71,7 @@ class SimpleCov::Formatter::BadgeFormatter
     command[1] = """
       convert #{output_path}/tmp.png \\( -size 260x#{get_config('badge_height', group)} xc:\"#{title_background(cov, strength, get_config('strength_foreground', group), get_config('color_code_title', group))}\" \
       -pointsize #{get_config('name_font_size', group)} -fill \"#{title_foreground(cov, strength, get_config('strength_foreground', group), get_config('color_code_title', group))}\" -font \"#{get_config('name_font', group)}\" \
-      -draw \"kerning 1 text 4,19 '#{group ? group.upcase : @@badge_title}'\" \
+      -draw \"kerning 1 text #{group ? 2 : 4},#{group ? 16 : 19} '#{group ? group.upcase : @@badge_title}'\" \
       -gravity West -background white -splice 1x0  \
       -background black -splice 1x0 -trim  +repage \
       -gravity West -chop 1x0 -gravity East \
