@@ -2,7 +2,7 @@
 [ ![Codeship Status for matthew342/simplecov-badge](https://www.codeship.io/projects/c46ee0e0-9da1-0130-7a9e-0e0ae47480c0/status?branch=master)](https://www.codeship.io/projects/3367)
 [ ![Code Coverage for matthew342/simplecov-badge](https://raw.github.com/matthew342/simplecov-badge/gh-pages/coverage/coverage-badge.png)](http://matthew342.github.io/simplecov-badge/coverage/index.html)
 
-Generates coverage badges from SimpleCov using ImageMagick.  Great for small private repos that don't want to pay for a [hosted service](https://coveralls.io/).
+Generates coverage badges from SimpleCov using ImageMagick.  Great for small private repos that don't want to pay for a [hosted service](https://coveralls.io/).  Add the badge to your readme, linked to your coverage report for improved test coverage visibility.
 
 ***Note: To learn more about SimpleCov, check out the main repo at https://github.com/colszowka/simplecov***
 
@@ -17,6 +17,7 @@ The left side of the badge shows and is color-coded for the percentage of lines 
 
 ## Installation
 Install [ImageMagick](http://www.imagemagick.org/), then:
+
 	# In your gemfile
 	gem 'simplecov-badge', :require => false
 	
