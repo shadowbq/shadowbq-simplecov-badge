@@ -10,10 +10,10 @@ Generates coverage badges from SimpleCov using ImageMagick.  Great for small pri
 The left side of the badge shows and is color-coded for the percentage of lines covered.  The right side is color-coded for the strength of coverage (in terms of hits/line).
 ####Simple
 ----------
-![Code Coverage for matthew342/simplecov-badge](http://matthew342.github.io/simplecov-badge/coverage/coverage-badge.png)
+![Code Coverage for matthew342/simplecov-badge](https://raw.github.com/matthew342/simplecov-badge/gh-pages/coverage/coverage-badge.png)
 ####Including Group sub-badges and timestamp
 ----------
-![Code Coverage for matthew342/simplecov-badge](http://matthew342.github.io/simplecov-badge/coverage-badge-example.png)
+![Code Coverage for matthew342/simplecov-badge](https://raw.github.com/matthew342/simplecov-badge/gh-pages/coverage-badge-example.png)
 
 ## Installation
 Install [ImageMagick](http://www.imagemagick.org/), then:
