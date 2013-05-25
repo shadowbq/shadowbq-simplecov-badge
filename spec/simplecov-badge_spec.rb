@@ -1,19 +1,39 @@
 require 'spec_helper'
 
 describe SimpleCov::Formatter::BadgeFormatter do
-  before(:all) do
-    @obj = SimpleCov::Formatter::BadgeFormatter.new
+  before(:each) do
+    @output = double("output").as_null_object
+    @obj = SimpleCov::Formatter::BadgeFormatter.new(@output)
   end
 
   describe 'format' do    
-    it "handles a StandardError" do
-      result = double("result")
-      result.stub(:command_name) {'test'}
-      @obj.stub(:check_imagemagick).and_raise(ImageMagickError, "test phrase")
-      @obj.should_not_receive(:generate_header_badge)
-      @obj.should_not_receive(:generate_group_badges)
-      $stdout.should_receive(:write).at_least(:once)
-      @obj.format(result)
+    context "when a StandardError is raised" do
+      before(:each) do
+        @result = double("result")
+        @result.stub(:command_name) {'test'}
+        @obj.stub(:check_imagemagick).and_raise(ImageMagickError, "test phrase")
+      end
+      
+      it 'does not call generate_header_badge' do
+        @obj.should_not_receive(:generate_header_badge)
+        @obj.format(@result)
+      end
+      
+      it 'does not call generate_group_badges' do
+        @obj.should_not_receive(:generate_group_badges)
+        @obj.format(@result)
+      end
+      
+      it 'outputs the error message' do
+        @output.should_receive(:puts).with('test phrase')
+        @obj.format(@result)
+      end
+      
+      it 'outputs standard error message' do
+        @output.should_receive(:puts).with('Simplecov-Badge was unable to generate a badge for test.')
+        @obj.format(@result)
+      end
+      
     end
   end
 
