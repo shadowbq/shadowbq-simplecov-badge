@@ -122,7 +122,7 @@ class SimpleCov::Formatter::BadgeFormatter
       convert #{output_path}/coverage-badge.png -alpha set -bordercolor none -border 3 \
       -gravity North -chop 0x3 \
       -gravity East -chop 3x0 \
-      -gravity West -chop 3x0 \\( -background none -font 'Helvetica' label:'Generated #{Time.current.strftime('%m-%d-%y %H:%M UTC')}' \\) -background none -gravity center -append #{output_path}/coverage-badge.png
+      -gravity West -chop 3x0 \\( -background none -font 'Helvetica' label:'Generated #{Time.now.strftime('%m-%d-%y %H:%M UTC')}' \\) -background none -gravity center -append #{output_path}/coverage-badge.png
     """
     output = `#{timestamp_cmd}`
     check_status(output)

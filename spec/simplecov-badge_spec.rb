@@ -22,6 +22,9 @@ describe SimpleCov::Formatter::BadgeFormatter do
       SimpleCov::Formatter::BadgeFormatter.generate_groups.should eq(true)
       SimpleCov::Formatter::BadgeFormatter.generate_groups = false
       SimpleCov::Formatter::BadgeFormatter.generate_groups.should eq(false)
+      SimpleCov::Formatter::BadgeFormatter.timestamp.should eq(false)
+      SimpleCov::Formatter::BadgeFormatter.timestamp = true
+      SimpleCov::Formatter::BadgeFormatter.timestamp.should eq(true)
     end
   end
   
