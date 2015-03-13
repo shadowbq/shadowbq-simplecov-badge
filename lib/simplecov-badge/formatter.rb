@@ -138,7 +138,7 @@ class SimpleCov::Formatter::BadgeFormatter
   
   # checks if imagemagick is installed and working
   def check_imagemagick
-    output = `convert`
+    output = `convert --version`
     raise ImageMagickError, "ImageMagick doesn't appear to be installed." unless $?.to_i == 0
   end
   
