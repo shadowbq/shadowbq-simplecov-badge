@@ -1,7 +1,7 @@
 module SimpleCov
   module Formatter
-    class BadgeFormatter
-      VERSION = "2.0.3"
+    class ShadowbqBadgeFormatter
+      VERSION = "2.0.4"
     end
   end
 end
