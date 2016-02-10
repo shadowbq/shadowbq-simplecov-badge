@@ -5,7 +5,7 @@ end
 
 ImageMagickError = Class.new(StandardError)
   
-class SimpleCov::Formatter::BadgeFormatter  
+class SimpleCov::Formatter::ShadowbqBadgeFormatter  
   # Set up config variables.
   options = {:badge_title => 'TEST COVERAGE', :generate_groups => true, :timestamp => false, :green => '#4fb151',
             :yellow => '#ded443', :red => '#a23e3f', :number_font => 'Helvetica-Narrow-Bold',
@@ -139,7 +139,7 @@ class SimpleCov::Formatter::BadgeFormatter
   
   # checks if imagemagick is installed and working
   def check_imagemagick
-    output = `convert`
+    output = `convert --version`
     raise ImageMagickError, "ImageMagick doesn't appear to be installed." unless $?.to_i == 0
   end
   
@@ -220,5 +220,5 @@ class SimpleCov::Formatter::BadgeFormatter
 end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__)))
-require 'simplecov-badge/version'
-require 'simplecov-badge/formatter.rb'
+require 'shadowbq-simplecov-badge/version'
+require 'shadowbq-simplecov-badge/formatter.rb'
