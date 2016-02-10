@@ -1,6 +1,6 @@
 ImageMagickError = Class.new(StandardError)
   
-class SimpleCov::Formatter::BadgeFormatter  
+class SimpleCov::Formatter::ShadowbqBadgeFormatter  
   # Set up config variables.
   options = {:badge_title => 'TEST COVERAGE', :generate_groups => true, :timestamp => false, :green => '#4fb151',
             :yellow => '#ded443', :red => '#a23e3f', :number_font => 'Helvetica-Narrow-Bold',
