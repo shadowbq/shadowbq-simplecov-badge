@@ -1,53 +1,53 @@
 require 'spec_helper'
 
-describe SimpleCov::Formatter::BadgeFormatter do
+describe SimpleCov::Formatter::ShadowbqBadgeFormatter do
   before(:each) do
     @output = double("output").as_null_object
-    @obj = SimpleCov::Formatter::BadgeFormatter.new(@output)
+    @obj = SimpleCov::Formatter::ShadowbqBadgeFormatter.new(@output)
   end
 
-  describe 'format' do    
+  describe 'format' do
     context "when a StandardError is raised" do
       before(:each) do
         @result = double("result")
         @result.stub(:command_name) {'test'}
         @obj.stub(:check_imagemagick).and_raise(ImageMagickError, "test phrase")
       end
-      
+
       it 'does not call generate_header_badge' do
         @obj.should_not_receive(:generate_header_badge)
         @obj.format(@result)
       end
-      
+
       it 'does not call generate_group_badges' do
         @obj.should_not_receive(:generate_group_badges)
         @obj.format(@result)
       end
-      
+
       it 'outputs the error message' do
         @output.should_receive(:puts).with('test phrase')
         @obj.format(@result)
       end
-      
+
       it 'outputs standard error message' do
         @output.should_receive(:puts).with('Simplecov-Badge was unable to generate a badge for test.')
         @obj.format(@result)
       end
-      
+
     end
   end
 
-  describe "options" do  
+  describe "options" do
     it 'generates option getter/setters' do
-      SimpleCov::Formatter::BadgeFormatter.generate_groups.should eq(true)
-      SimpleCov::Formatter::BadgeFormatter.generate_groups = false
-      SimpleCov::Formatter::BadgeFormatter.generate_groups.should eq(false)
-      SimpleCov::Formatter::BadgeFormatter.timestamp.should eq(false)
-      SimpleCov::Formatter::BadgeFormatter.timestamp = true
-      SimpleCov::Formatter::BadgeFormatter.timestamp.should eq(true)
+      SimpleCov::Formatter::ShadowbqBadgeFormatter.generate_groups.should eq(true)
+      SimpleCov::Formatter::ShadowbqBadgeFormatter.generate_groups = false
+      SimpleCov::Formatter::ShadowbqBadgeFormatter.generate_groups.should eq(false)
+      SimpleCov::Formatter::ShadowbqBadgeFormatter.timestamp.should eq(false)
+      SimpleCov::Formatter::ShadowbqBadgeFormatter.timestamp = true
+      SimpleCov::Formatter::ShadowbqBadgeFormatter.timestamp.should eq(true)
     end
   end
-  
+
   describe "badge generation" do
     it 'should generate header badge' do
       @obj.stub(:check_imagemagick).and_return(0)
@@ -67,9 +67,9 @@ describe SimpleCov::Formatter::BadgeFormatter do
       $?.success?.should eq(true)
       File.size('coverage-badge.png')
     end
- 
+
     it 'should generate group badges' do
-      SimpleCov::Formatter::BadgeFormatter.generate_groups = true
+      SimpleCov::Formatter::ShadowbqBadgeFormatter.generate_groups = true
       result = double('Result')
       result.stub(:command_name) {'test'}
       files = double("files")
@@ -113,7 +113,7 @@ describe SimpleCov::Formatter::BadgeFormatter do
           @obj.instance_eval{title_foreground(90,1, false, false)}.should eq('white')
         end
       end
-        
+
       describe 'strength_background' do
         it 'returns transparent if foreground and strength_color if not' do
           @obj.instance_eval{strength_background(60, true)}.should eq('transparent')
@@ -146,11 +146,11 @@ describe SimpleCov::Formatter::BadgeFormatter do
         end
       end
     end
-    
+
     after(:all) do
       `rm coverage-badge.png`
     end
   end
-  
+
 
 end
